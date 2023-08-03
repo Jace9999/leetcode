@@ -11,14 +11,17 @@ class Solution {
         int right = nums.length-1;
 
         while(true){
-            int mid = left + (right - left) / 2;
+            int mid = (left + right) /2;
             if(left > right){
                 return -1;
-            }else if(nums[mid]==target){
+            }
+            if(nums[mid]==target){
                 return mid;
-            }else if(nums[mid]>target){
+            }
+            if(nums[mid]>target){
                 right = mid -1;
-            }else if(nums[mid]<target){
+            }
+            if(nums[mid]<target){
                 left = mid +1;
             }
         }
