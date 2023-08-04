@@ -11,10 +11,10 @@ class Solution {
         int right = arr.length - k;
         while(left < right){
             int mid = left + (right - left) /2;
-            if(arr[mid+k] - x < x - arr[mid]){
-                left = mid + 1;
-            }else{
+            if(arr[mid+k] - x > x - arr[mid]){
                 right = mid;
+            }else{
+                left = mid + 1;
             }
         }
         return Arrays.stream(arr, left, left + k).boxed().collect(Collectors.toList());

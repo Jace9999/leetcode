@@ -13,6 +13,7 @@ class Solution {
             int mid = left + (right - left) /2;
             if(arr[mid+k] - x < x - arr[mid]){
                 left = mid + 1;
+
             }else{
                 right = mid;
             }
