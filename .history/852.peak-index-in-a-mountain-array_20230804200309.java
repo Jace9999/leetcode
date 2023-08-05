@@ -1,18 +1,18 @@
 /*
- * @lc app=leetcode id=162 lang=java
+ * @lc app=leetcode id=852 lang=java
  *
- * [162] Find Peak Element
+ * [852] Peak Index in a Mountain Array
  */
 
 // @lc code=start
 class Solution {
-    public int findPeakElement(int[] nums) {
+    public int peakIndexInMountainArray(int[] arr) {
         int left =0;
-        int right = nums.length -1;
+        int right = arr.length -1;
         while(left < right){
             int mid = left + (right - left) /2;
-            if(nums[mid]<nums[mid+1]){
-                left = mid +1;
+            if(arr[mid] <= arr[mid+1]){
+                left = mid + 1;
             }else{
                 right = mid;
             }
