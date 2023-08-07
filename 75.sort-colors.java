@@ -7,25 +7,9 @@
 // @lc code=start
 class Solution {
     public void sortColors(int[] nums) {
-        // int[] arr = new int[]{0,0,0};
-        // for(int num: nums){
-        //     arr[num]++;
-        // }
-        // int index = 0;
-        // for(int i=0;i<nums.length;i++){
-        //     while(arr[index] == 0){
-        //         index++;
-        //     }
-        //     nums[i] = index;
-        //     arr[index]--;
-        // }
-
-        if(nums.length == 1){
-            return;
-        }
-        int two = nums.length-1;
         int zero = -1;
         int one = 0;
+        int two = nums.length -1;
         while(one <= two){
             if(nums[one] == 0){
                 zero++;
@@ -34,7 +18,7 @@ class Solution {
             }else if(nums[one] == 1){
                 one++;
             }else{
-                swap(nums, two, one);
+                swap(nums, one, two);
                 two--;
             }
         }
