@@ -7,23 +7,19 @@
 // @lc code=start
 class Solution {
     public int findKthLargest(int[] nums, int k) {
-        int left = 0;
-        int right = nums.length - 1;
-        while(true){
-            int rank = quickFind(nums, left, right);
-            if(rank == nums.length - k ){
-                return nums[rank];
-            }else if(rank > nums.length - k){
-                right = rank - 1;
-            }else{
-                left = rank+ 1;
+        for(int i=0;i<nums.length;i++){
+            int rank = quickFind(nums, i);
+            if(rank==nums.length - k){
+                return nums[i];
             }
         }
+        return - 1;
     }
 
-    public int quickFind(int[] nums, int left, int right){
-        int i = left;
-        int num = nums[left];
+    public int quickFind(int[] nums, int i){
+        int num = nums[i];
+        int left = 0;
+        int right = nums.length -1;
         while(left < right){
             while(left < right && nums[right] >= num){
                 right--;
@@ -37,8 +33,6 @@ class Solution {
                 nums[right] = temp;
             }
         }
-        nums[i] = nums[left];
-        nums[left] = num;
         return left;
     }
 }

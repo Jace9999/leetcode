@@ -20,7 +20,7 @@ class Solution {
             }else{
                 res += Math.max(0, leftMax-nums[left]);
                 leftMax = Math.max(leftMax, nums[left]);
-                left++;
+                left--;
             }
         }
         return res;

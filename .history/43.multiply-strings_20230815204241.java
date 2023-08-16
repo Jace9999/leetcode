@@ -26,7 +26,7 @@ class Solution {
 
         StringBuffer sb = new StringBuffer();
         for(int i:res){
-            if(sb.length() != 0 || i != 0){
+            if(!(sb.length() == 0 && i == 0)){
                 sb.append(i);
             }
         }

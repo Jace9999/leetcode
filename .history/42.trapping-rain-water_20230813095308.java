@@ -7,20 +7,20 @@
 // @lc code=start
 class Solution {
     public int trap(int[] nums) {
-        int left = 0;
-        int right = nums.length-1;
-        int leftMax =0;
-        int rightMax = 0;
+        int leftMax = nums[0];
+        int rightMax = nums[nums.length - 1];
         int res = 0;
+        int left = 1;
+        int right = nums.length - 2;
         while(left <= right){
-            if(leftMax > rightMax){
-                res += Math.max(0, rightMax-nums[right]);
+            if(nums[left] < nums[right]){
                 rightMax = Math.max(rightMax, nums[right]);
-                right--;
-            }else{
-                res += Math.max(0, leftMax-nums[left]);
-                leftMax = Math.max(leftMax, nums[left]);
+                res += Math.max(0,rightMax-nums[left] );
                 left++;
+            }else{
+                leftMax = Math.max(leftMax, nums[left]);
+                res+= Math.max(0,leftMax-nums[right]);
+                right--;
             }
         }
         return res;

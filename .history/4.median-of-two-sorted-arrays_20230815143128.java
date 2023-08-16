@@ -23,8 +23,8 @@ class Solution {
         if(k == 1){
             return Math.min(nums1[s1], nums2[s2]);
         }
-        int i = s1 + Math.min(k/2, len1)-1;
-        int j = s2 + Math.min(k/2, len2)-1;
+        int i = s1 + Math.min(k/2, e1-s1);
+        int j = s2 + Math.min(k/2, e2-s1);
         if(nums1[i] > nums2[j]){
             return findK(nums1, s1, e1, nums2, j+1, e2, k - (j-s2+1));
         }else{
